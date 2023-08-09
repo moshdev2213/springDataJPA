@@ -11,34 +11,31 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.example.datajpa.entity.Course;
 import com.example.datajpa.entity.Teacher;
 @SpringBootTest
-class CourseRepoTest {
+class TeacherRepoTest {
 
 	@Autowired
-	private CourseRepo courseRepo;
+	private TeacherRepo teacherRepo;
 	
 	@Test
-	public void printCourses() {
-		List<Course> courses = courseRepo.findAll();
-		System.out.println(courses);
-	}
-	
-	@Test
-	public void saveCourseWithTeacher() {
+	public void saveTeacher() {
+		
+		Course courseDSB = Course.builder()
+				.title("DSB")
+				.credit(4)
+				.build();
+		Course courseDSDB = Course.builder()
+				.title("DSDB")
+				.credit(4)
+				.build();
 		
 		Teacher teacher = 
 				Teacher.builder()
-					.firstName("Priyanka")
-					.lastName("singhh")
+					.firstName("suranagana")
+					.lastName("welupillai")
+//					.course(List.of(courseDSB,courseDSDB))
 					.build();
 		
-		Course course = 
-				Course.builder()
-					.title("Python")
-					.credit(4)
-					.teacher(teacher)
-					.build();
-		
-		courseRepo.save(course);
+		teacherRepo.save(teacher);
 	}
 
 }

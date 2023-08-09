@@ -22,13 +22,13 @@ class CourseMaterialRepoTest {
 		
 		Course course = 
 				Course.builder()
-					.title("DSA")
+					.title("C++")
 					.credit(6)
 					.build();
 		
 		CourseMaterial courseMaterial = 
 				CourseMaterial.builder()
-					.url("google.com")
+					.url("dailycodegoogle.com")
 					.course(course)
 					.build();
 		
